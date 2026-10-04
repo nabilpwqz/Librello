@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@300..700&display=swap');
+@import "tailwindcss";
+@import "@heroui/styles";
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* =========================================
+   LIBRELLO EDITORIAL DESIGN SYSTEM
+   Palette: Warm Ivory + Deep Charcoal + Terracotta Accent
+   Strictly Zero Blue, Purple, Violet, Green, Cyan
+========================================= */
+
+:root {
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Warm Ivory / Antiquarian Paper Base (Never pure white) */
+  --background: 247 244 238; /* #F7F4EE */
+  --foreground: 24 22 21;    /* #181615 Deep Charcoal */
+
+  --card: 251 249 245;       /* #FBF9F5 Warm Cream */
+  --card-soft: 242 237 229;  /* #F2EDE5 Soft Parchment */
+  --card-foreground: 24 22 21;
+
+  /* Rich Warm Terracotta / Burnt Sienna */
+  --primary: 194 83 43;      /* #C2532B */
+  --secondary: 61 47 40;     /* #3D2F28 Roasted Espresso */
+  --accent: 204 110 62;      /* #CC6E3E Warm Sienna */
+
+  --border: 228 222 212;     /* #E4DED4 Muted Stone */
+
+  --muted: 242 237 229;
+  --muted-foreground: 118 110 101; /* #766E65 */
+
+  --sidebar: 249 246 240;
+
+  --shadow: 0 4px 20px rgba(24, 22, 21, 0.05);
+
+  --body-bg: #F7F4EE;
+}
+
+/* =========================================
+   DARK THEME: DEEP OBSIDIAN CHARCOAL & WARM ALABASTER
+========================================= */
+.dark {
+  --background: 20 19 18;    /* #141312 Deep Charcoal */
+  --foreground: 243 239 232; /* #F3EFE8 Soft Alabaster */
+
+  --card: 28 26 25;          /* #1C1A19 Charcoal Surface */
+  --card-soft: 36 33 31;     /* #24211F Soft Charcoal */
+  --card-foreground: 243 239 232;
+
+  --primary: 217 101 59;     /* #D9653B Luminous Terracotta */
+  --secondary: 158 83 53;    /* #9E5335 Warm Umber */
+  --accent: 226 120 80;      /* #E27850 Soft Ember */
+
+  --border: 45 42 40;        /* #2D2A28 Muted Charcoal */
+
+  --muted: 36 33 31;
+  --muted-foreground: 164 157 148; /* #A49D94 */
+
+  --sidebar: 24 22 21;
+
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+
+  --body-bg: #141312;
+}
+
+/* =========================================
+   TAILWIND V4 TOKENS MAPPING
+========================================= */
+@theme {
+  --color-background: rgb(var(--background));
+  --color-foreground: rgb(var(--foreground));
+
+  --color-card: rgb(var(--card));
+  --color-card-soft: rgb(var(--card-soft));
+  --color-card-foreground: rgb(var(--card-foreground));
+
+  --color-primary: rgb(var(--primary));
+  --color-secondary: rgb(var(--secondary));
+  --color-accent: rgb(var(--accent));
+
+  --color-border: rgb(var(--border));
+  --color-muted: rgb(var(--muted));
+  --color-muted-foreground: rgb(var(--muted-foreground));
+
+  --color-sidebar: rgb(var(--sidebar));
+}
+
+/* =========================================
+   GLOBAL OVERRIDES & EDITORIAL TYPOGRAPHY
+========================================= */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--body-bg);
+  color: rgb(var(--foreground));
+  min-height: 100vh;
+  font-family: var(--font-body), sans-serif;
+  letter-spacing: -0.01em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif), Georgia, serif;
+  letter-spacing: -0.02em;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Custom Editorial Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--card));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--primary));
+}
+
+/* =========================================
+   EDITORIAL COMPONENTS LAYER
+========================================= */
+@layer components {
+  .container-custom {
+    @apply mx-auto w-[92%] max-w-[1360px];
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight;
+    font-family: var(--font-serif), Georgia, serif;
+  }
+
+  .section-description {
+    color: rgb(var(--muted-foreground));
+    @apply leading-relaxed;
+  }
+
+  .dashboard-card {
+    @apply rounded-xl border p-6 transition-all duration-300;
+    background: rgb(var(--card));
+    border-color: rgb(var(--border));
+    box-shadow: var(--shadow);
+  }
+
+  .soft-card {
+    @apply rounded-xl border p-6;
+    background: rgb(var(--card-soft));
+    border-color: rgb(var(--border));
+  }
+
+  .book-card {
+    @apply overflow-hidden rounded-xl border transition-all duration-300;
+    background: rgb(var(--card));
+    border-color: rgb(var(--border));
+    box-shadow: var(--shadow);
+  }
+
+  .table-wrapper {
+    @apply overflow-hidden rounded-xl border;
+    background: rgb(var(--card));
+    border-color: rgb(var(--border));
+  }
+
+  .input-field {
+    @apply h-11 w-full rounded-lg border px-4 outline-none transition-all text-sm;
+    background: rgb(var(--card));
+    border-color: rgb(var(--border));
+    color: rgb(var(--foreground));
+  }
+
+  .input-field:focus {
+    border-color: rgb(var(--primary));
+  }
+
+  .sidebar {
+    background: rgb(var(--sidebar));
+    border-right: 1px solid rgb(var(--border));
+  }
+
+  .btn-primary {
+    @apply rounded-lg px-6 py-2.5 text-white font-medium transition-all duration-200 active:scale-[0.98] shadow-sm;
+    background: rgb(var(--primary));
+  }
+
+  .btn-primary:hover {
+    opacity: 0.92;
+  }
+
+  .btn-secondary {
+    @apply rounded-lg border px-6 py-2.5 font-medium transition-all duration-200 active:scale-[0.98];
+    background: rgb(var(--card));
+    border-color: rgb(var(--border));
+    color: rgb(var(--foreground));
+  }
+
+  .btn-secondary:hover {
+    background: rgb(var(--card-soft));
+  }
+
+  .editorial-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase;
+    background: rgba(var(--primary), 0.08);
+    color: rgb(var(--primary));
+    border: 1px solid rgba(var(--primary), 0.2);
+  }
+}
+
+/* =========================================
+   PAGE TURN & MONOGRAM ANIMATIONS (NO TRUCKS)
+========================================= */
+@keyframes librelloPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pageFlip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(-180deg);
+  }
+  100% {
+    transform: rotateY(-180deg);
+  }
+}
+
+.librello-loader-monogram {
+  animation: librelloPulse 2s ease-in-out infinite;
+}
