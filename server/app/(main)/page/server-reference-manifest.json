@@ -1,0 +1,17 @@
+{
+  "node": {
+    "40c3fcf98c05b49b22dc85454b2d61701cc84cca5b": {
+      "workers": {
+        "app/(main)/page": {
+          "moduleId": 23562,
+          "async": false,
+          "exportedName": "getAllPublishedBooks",
+          "filename": "src/lib/api/books.ts"
+        }
+      },
+      "exportedName": "getAllPublishedBooks",
+      "filename": "src/lib/api/books.ts"
+    }
+  },
+  "edge": {}
+}
