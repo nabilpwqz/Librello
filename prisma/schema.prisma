@@ -1,0 +1,110 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String    @id @default(cuid())
+  uid       String?   @unique
+  name      String
+  email     String    @unique
+  image     String?
+  role      String    @default("user") // "admin" | "librarian" | "user"
+  status    String?   @default("active") // "active" | "suspended"
+  phone     String?
+  address   String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  sessions  Session[]
+  comments  Comment[]
+  payments  Payment[]
+
+  @@map("users")
+}
+
+model Session {
+  id        String    @id @default(cuid())
+  token     String    @unique
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime?
+  createdAt DateTime  @default(now())
+
+  @@map("sessions")
+}
+
+model Book {
+  id             String    @id @default(cuid())
+  title          String
+  author         String
+  category       String
+  description    String?   @db.Text
+  coverImage     String?   @db.Text
+  cover          String?   @db.Text
+  fee            Float     @default(0)
+  status         String    @default("Pending Approval") // "Published" | "Pending Approval" | "Rejected" | "Checked Out"
+  librarianId    String?
+  librarianName  String?
+  librarianEmail String?
+  librarianImage String?   @db.Text
+  stock          Int       @default(1)
+  requests       Int       @default(0)
+  rating         Float?    @default(0)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  comments       Comment[]
+  payments       Payment[]
+
+  @@map("books")
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  bookId    String
+  book      Book     @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  userName  String
+  userEmail String
+  userImage String?
+  rating    Float    @default(5)
+  comment   String   @db.Text
+  bookTitle String?
+  bookImage String?  @db.Text
+  role      String?
+  createdAt DateTime @default(now())
+
+  @@map("comments")
+}
+
+model Payment {
+  id              String   @id @default(cuid())
+  transactionId   String   @unique
+  userEmail       String
+  userName        String?  @default("Reader")
+  userId          String?
+  user            User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  bookId          String
+  book            Book?    @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  bookTitle       String
+  bookImage       String?  @db.Text
+  bookCover       String?  @db.Text
+  amount          Float    @default(0)
+  status          String   @default("Pending") // "Pending" | "Delivered" | "Returned" | "Paid"
+  deliveryStatus  String?  @default("Pending")
+  deliveryAddress String?
+  librarianId     String?
+  librarianEmail  String?
+  month           String?
+  returnDate      String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("payments")
+}
