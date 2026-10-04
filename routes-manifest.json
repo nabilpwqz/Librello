@@ -1,0 +1,245 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "onMatchHeaders": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [
+      {
+        "source": "/api/ai/:path*",
+        "destination": "https://librello-backend.vercel.app/api/ai/:path*",
+        "regex": "^/api/ai(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+      },
+      {
+        "source": "/api/send-email",
+        "destination": "https://librello-backend.vercel.app/api/send-email",
+        "regex": "^/api/send-email(?:/)?$"
+      }
+    ],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/books/[id]",
+      "regex": "^/books/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/books/(?<nxtPid>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/api/ai/chat",
+      "regex": "^/api/ai/chat(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/ai/chat(?:/)?$"
+    },
+    {
+      "page": "/api/auth/session",
+      "regex": "^/api/auth/session(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/session(?:/)?$"
+    },
+    {
+      "page": "/api/payment",
+      "regex": "^/api/payment(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/payment(?:/)?$"
+    },
+    {
+      "page": "/books",
+      "regex": "^/books(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/books(?:/)?$"
+    },
+    {
+      "page": "/dashboard/admin",
+      "regex": "^/dashboard/admin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/admin(?:/)?$"
+    },
+    {
+      "page": "/dashboard/admin/bookApproval",
+      "regex": "^/dashboard/admin/bookApproval(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/admin/bookApproval(?:/)?$"
+    },
+    {
+      "page": "/dashboard/admin/manageBooks",
+      "regex": "^/dashboard/admin/manageBooks(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/admin/manageBooks(?:/)?$"
+    },
+    {
+      "page": "/dashboard/admin/overview",
+      "regex": "^/dashboard/admin/overview(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/admin/overview(?:/)?$"
+    },
+    {
+      "page": "/dashboard/admin/profile",
+      "regex": "^/dashboard/admin/profile(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/admin/profile(?:/)?$"
+    },
+    {
+      "page": "/dashboard/admin/users",
+      "regex": "^/dashboard/admin/users(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/admin/users(?:/)?$"
+    },
+    {
+      "page": "/dashboard/admin/viewTransactions",
+      "regex": "^/dashboard/admin/viewTransactions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/admin/viewTransactions(?:/)?$"
+    },
+    {
+      "page": "/dashboard/librarian",
+      "regex": "^/dashboard/librarian(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/librarian(?:/)?$"
+    },
+    {
+      "page": "/dashboard/librarian/addBook",
+      "regex": "^/dashboard/librarian/addBook(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/librarian/addBook(?:/)?$"
+    },
+    {
+      "page": "/dashboard/librarian/manageDeliveries",
+      "regex": "^/dashboard/librarian/manageDeliveries(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/librarian/manageDeliveries(?:/)?$"
+    },
+    {
+      "page": "/dashboard/librarian/manageInventory",
+      "regex": "^/dashboard/librarian/manageInventory(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/librarian/manageInventory(?:/)?$"
+    },
+    {
+      "page": "/dashboard/librarian/overview",
+      "regex": "^/dashboard/librarian/overview(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/librarian/overview(?:/)?$"
+    },
+    {
+      "page": "/dashboard/librarian/profile",
+      "regex": "^/dashboard/librarian/profile(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/librarian/profile(?:/)?$"
+    },
+    {
+      "page": "/dashboard/user",
+      "regex": "^/dashboard/user(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/user(?:/)?$"
+    },
+    {
+      "page": "/dashboard/user/myReadingList",
+      "regex": "^/dashboard/user/myReadingList(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/user/myReadingList(?:/)?$"
+    },
+    {
+      "page": "/dashboard/user/myReviews",
+      "regex": "^/dashboard/user/myReviews(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/user/myReviews(?:/)?$"
+    },
+    {
+      "page": "/dashboard/user/profile",
+      "regex": "^/dashboard/user/profile(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/user/profile(?:/)?$"
+    },
+    {
+      "page": "/dashboard/user/userDeliveryHistory",
+      "regex": "^/dashboard/user/userDeliveryHistory(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/user/userDeliveryHistory(?:/)?$"
+    },
+    {
+      "page": "/dashboard/user/userOverview",
+      "regex": "^/dashboard/user/userOverview(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/user/userOverview(?:/)?$"
+    },
+    {
+      "page": "/pricing/payment-success",
+      "regex": "^/pricing/payment\\-success(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/pricing/payment\\-success(?:/)?$"
+    },
+    {
+      "page": "/signin",
+      "regex": "^/signin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/signin(?:/)?$"
+    },
+    {
+      "page": "/signup",
+      "regex": "^/signup(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/signup(?:/)?$"
+    },
+    {
+      "page": "/unauthorized",
+      "regex": "^/unauthorized(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/unauthorized(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}
