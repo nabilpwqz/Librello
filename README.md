@@ -84,7 +84,7 @@ flowchart TB
 ## ✨ Key Features
 
 ### 1. 🤖 Intelligent AI Capabilities
-* **BiblioBot AI Concierge**: Built-in 24/7 literary companion providing personalized recommendations, discussion points, and reading advice.
+* **Librello AI Concierge**: Built-in 24/7 literary companion providing personalized recommendations, discussion points, and reading advice.
 * **Smart OCR Cover Scanner**: Librarians upload book cover images; computer vision models extract title, author, synopsis, and suggested category in seconds.
 * **Deep Book Insights Engine**: On-demand thematic breakdown, reading difficulty assessments, core motifs, and target audience identification for every cataloged title.
 * **Semantic & Mood-Based Book Search**: Queries like *"a rainy autumn afternoon mystery with melancholy undertones"* yield semantically relevant titles using embedding-informed matching.
