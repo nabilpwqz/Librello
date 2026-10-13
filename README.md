@@ -1,7 +1,7 @@
 <div align="center">
 
 # 📚 LIBRELLO
-### *The Next-Generation AI-Augmented Library Logistics & Circulation Platform*
+### *The Next-Generation AI-Augmented Library Logistics & Circulation Platform *
 
 [![Next.js 16](https://img.shields.io/badge/Next.js-16.2.9-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React 19](https://img.shields.io/badge/React-19.2.4-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
